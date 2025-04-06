@@ -544,38 +544,55 @@
     </script>
     <script>
         $("#contactform").on("submit", function (e) {
-            var name = $("#name").val();
-            var email = $("#email").val();
-            var subject = $("#subject").val();
-            var message = $("#message").val();
+            e.preventDefault();
+
+            var name = $("#name").val().trim();
+            var email = $("#email").val().trim();
+            var subject = $("#subject").val().trim();
+            var message = $("#message").val().trim();
+
+            let hasError = false;
 
             if (name === "") {
                 $("#name").addClass("error-color");
+                hasError = true;
+            } else {
+                $("#name").removeClass("error-color");
             }
+
             if (email === "") {
                 $("#email").addClass("error-color");
+                hasError = true;
+            } else {
+                $("#email").removeClass("error-color");
             }
+
             if (subject === "") {
                 $("#subject").addClass("error-color");
+                hasError = true;
+            } else {
+                $("#subject").removeClass("error-color");
             }
+
             if (message === "") {
                 $("#message").addClass("error-color");
+                hasError = true;
+            } else {
+                $("#message").removeClass("error-color");
             }
 
-            else {
+            if (!hasError) {
                 emailjs.sendForm('service_r3nlce1', 'template_0a8to7g', this)
-                .then(function (response) {
-                    $("#success").addClass("show-result"); //=== Show Success Message==
-                        $("#contactform").each(function () {
-                            this.reset();
-                        });
-                }, function (error) {
-                    $("#error").addClass("show-result")
-                });
+                    .then(function (response) {
+                        $("#success").addClass("show-result");
+                        $("#contactform")[0].reset();
+                    }, function (error) {
+                        $("#error").addClass("show-result");
+                        console.error("EmailJS Error:", error);
+                    });
             }
-
-            e.preventDefault();
         });
+
     </script>
 </body>
 
