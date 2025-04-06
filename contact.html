@@ -20,13 +20,6 @@
     <!-- page name -->
     <title>Contact Us</title>
 
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-    <script>
-        (function () {
-            emailjs.init("service_r3nlce1"); // You'll get this from your EmailJS dashboard
-        })();
-    </script>
-
 </head>
 
 <body>
@@ -182,7 +175,8 @@
                                             <h6 class="mil-muted mil-mb-30">Canada</h6>
 
                                             <p class="mil-light-soft mil-up">71 South Los Carneros Road, California
-                                                <span class="mil-no-wrap">+51 174 705 812</span></p>
+                                                <span class="mil-no-wrap">+51 174 705 812</span>
+                                            </p>
 
                                         </div>
                                         <div class="col-lg-4 mil-mb-60">
@@ -356,7 +350,8 @@
                                             <h6 class="mil-muted mil-up mil-mb-30">Canada</h6>
 
                                             <p class="mil-light-soft mil-up">71 South Los Carneros Road, California
-                                                <span class="mil-no-wrap">+51 174 705 812</span></p>
+                                                <span class="mil-no-wrap">+51 174 705 812</span>
+                                            </p>
 
                                         </div>
                                         <div class="col-md-6 col-lg-5 mil-mb-60">
@@ -364,7 +359,8 @@
                                             <h6 class="mil-muted mil-up mil-mb-30">Germany</h6>
 
                                             <p class="mil-light-soft mil-up">Leehove 40, 2678 MC De Lier, Netherlands
-                                                <span class="mil-no-wrap">+31 174 705 811</span></p>
+                                                <span class="mil-no-wrap">+31 174 705 811</span>
+                                            </p>
 
                                         </div>
                                     </div>
@@ -540,26 +536,29 @@
     <script src="js/main.js"></script>
     <!-- functions js -->
     <script src="js/functions.js"></script>
-
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script>
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
+        emailjs.init("service_r3nlce1"); // Replace with your real public key
+    </script>
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function (e) {
             e.preventDefault();
-        
+
             // Optional: clear messages
             document.getElementById("success").classList.remove("show-result");
             document.getElementById("error").classList.remove("show-result");
-        
+
             emailjs.sendForm('service_r3nlce1', 'template_0a8to7g', this)
-                .then(function(response) {
+                .then(function (response) {
                     document.getElementById("success").classList.add("show-result");
                     console.log('SUCCESS!', response.status, response.text);
                     document.getElementById('contact-form').reset();
-                }, function(error) {
+                }, function (error) {
                     document.getElementById("error").classList.add("show-result");
                     console.log('FAILED...', error);
                 });
         });
-        </script>
+    </script>
 </body>
 
 </html>
