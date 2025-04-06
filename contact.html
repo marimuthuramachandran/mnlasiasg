@@ -20,6 +20,8 @@
     <!-- page name -->
     <title>Contact Us</title>
 
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
 </head>
 
 <body>
@@ -557,6 +559,39 @@
                     document.getElementById("error").classList.add("show-result");
                     console.log('FAILED...', error);
                 });
+        });
+        $("#contactform").on("submit", function (e) {
+            var name = $("#name").val();
+            var email = $("#email").val();
+            var subject = $("#subject").val();
+            var message = $("#message").val();
+
+            if (name === "") {
+                $("#name").addClass("error-color");
+            }
+            if (email === "") {
+                $("#email").addClass("error-color");
+            }
+            if (subject === "") {
+                $("#subject").addClass("error-color");
+            }
+            if (message === "") {
+                $("#message").addClass("error-color");
+            }
+
+            else {
+                emailjs.sendForm('service_r3nlce1', 'template_0a8to7g', this)
+                .then(function (response) {
+                    $("#success").addClass("show-result"); //=== Show Success Message==
+                        $("#contactform").each(function () {
+                            this.reset();
+                        });
+                }, function (error) {
+                    $("#error").addClass("show-result")
+                });
+            }
+
+            e.preventDefault();
         });
     </script>
 </body>
