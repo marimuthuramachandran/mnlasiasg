@@ -285,43 +285,98 @@ if (mapCanvas.length) {
 /*===============================================
   8. Contact Form
 ===============================================*/
-$("#contactform").on("submit", function(e) {
-  var name = $("#name").val();
-  var email = $("#email").val();
-  var subject = $("#subject").val();
-  var message = $("#message").val();
+// $("#contactform").on("submit", function(e) {
+//   var name = $("#name").val();
+//   var email = $("#email").val();
+//   var subject = $("#subject").val();
+//   var message = $("#message").val();
 
-  if (name === "") {
-    $("#name").addClass("error-color");
-  }
-  if (email === "") {
-    $("#email").addClass("error-color");
-  }
-  if (subject === "") {
-    $("#subject").addClass("error-color");
-  }
-  if (message === "") {
-    $("#message").addClass("error-color");
-  }
+//   if (name === "") {
+//     $("#name").addClass("error-color");
+//   }
+//   if (email === "") {
+//     $("#email").addClass("error-color");
+//   }
+//   if (subject === "") {
+//     $("#subject").addClass("error-color");
+//   }
+//   if (message === "") {
+//     $("#message").addClass("error-color");
+//   }
 
-  else {
-    $.ajax({
-      url:"php/contact-form.php",
-      data:$(this).serialize(),
-      type:"POST",
-      success:function(data){
-        $("#success").addClass("show-result"); //=== Show Success Message==
-        $("#contactform").each(function(){
-          this.reset();
-        });
-      },
-      error:function(data){
-        $("#error").addClass("show-result"); //===Show Error Message====
+//   else {
+//     $.ajax({
+//       url:"php/contact-form.php",
+//       data:$(this).serialize(),
+//       type:"POST",
+//       success:function(data){
+//         $("#success").addClass("show-result"); //=== Show Success Message==
+//         $("#contactform").each(function(){
+//           this.reset();
+//         });
+//       },
+//       error:function(data){
+//         $("#error").addClass("show-result"); //===Show Error Message====
+//       }
+//     });
+//     var forms = $("#contactform input, #contactform textarea");
+//     forms.removeClass("error-color");
+//   }
+
+//   e.preventDefault();
+// });
+
+$(document).ready(function () {
+  $("#contactform").on("submit", function (e) {
+      e.preventDefault();
+
+      var name = $("#name").val().trim();
+      var email = $("#email").val().trim();
+      var subject = $("#subject").val().trim();
+      var message = $("#message").val().trim();
+
+      var isValid = true;
+      $("#contactform input, #contactform textarea").removeClass("error-color");
+
+      if (name === "") {
+          $("#name").addClass("error-color");
+          isValid = false;
       }
-    });
-    var forms = $("#contactform input, #contactform textarea");
-    forms.removeClass("error-color");
-  }
+      if (email === "") {
+          $("#email").addClass("error-color");
+          isValid = false;
+      }
+      if (subject === "") {
+          $("#subject").addClass("error-color");
+          isValid = false;
+      }
+      if (message === "") {
+          $("#message").addClass("error-color");
+          isValid = false;
+      }
 
-  e.preventDefault();
+      if (!isValid) return;
+
+      // 🔧 Test Mode: Simulate a fake server response
+      simulateFormSubmission();
+  });
+
+  function simulateFormSubmission() {
+      // Simulate delay like a real AJAX call
+      setTimeout(function () {
+          // Randomly simulate success or error
+          const isSuccess = Math.random() > 0.2; // 80% chance of success
+
+          if (isSuccess) {
+              $("#success").addClass("show-result");
+              $("#error").removeClass("show-result");
+              $("#contactform")[0].reset();
+              console.log("✅ Test: Form submitted successfully");
+          } else {
+              $("#error").addClass("show-result");
+              $("#success").removeClass("show-result");
+              console.log("❌ Test: Form submission failed");
+          }
+      }, 1000); // 1 second delay
+  }
 });
