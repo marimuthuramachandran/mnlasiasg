@@ -327,7 +327,7 @@ blockquote {
   font-size: 18px;
   color: rgb(0, 0, 0);
   font-style: italic;
-  border-left: solid 4px rgb(255, 152, 0);
+  border-left: solid 4px rgb(255, 131, 0);
 }
 @media screen and (max-width: 768px) {
   blockquote {
@@ -407,7 +407,7 @@ a {
 }
 
 .mil-marker {
-  background-color: rgb(255, 152, 0);
+  background-color: rgb(255, 131, 0);
   padding: 0 5px;
 }
 
@@ -614,7 +614,7 @@ button
   transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
 }
 .mil-button svg path {
-  fill: rgb(255, 152, 0);
+  fill: rgb(255, 131, 0);
 }
 .mil-button.mil-icon-button {
   padding: 15px;
@@ -628,7 +628,7 @@ button
 }
 .mil-button.mil-icon-button-sm svg {
   margin-left: 0;
-  background-color: rgb(255, 152, 0);
+  background-color: rgb(255, 131, 0);
 }
 .mil-button.mil-icon-button-sm svg path {
   fill: rgb(0, 0, 0);
@@ -1079,7 +1079,7 @@ preloader
   position: absolute;
   opacity: 0;
   height: 100%;
-  background-color: rgb(255, 152, 0);
+  background-color: rgb(255, 131, 0);
 }
 .mil-preloader.mil-hidden {
   pointer-events: none;
@@ -1174,7 +1174,7 @@ scrollbar
 .mil-progress-track .mil-progress {
   width: 4px;
   height: 0;
-  background-color: rgb(255, 152, 0);
+  background-color: rgb(255, 131, 0);
 }
 @media screen and (max-width: 992px) {
   .mil-progress-track {
