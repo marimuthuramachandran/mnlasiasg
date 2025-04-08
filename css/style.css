@@ -1187,15 +1187,7 @@ scrollbar
 frame
 
 ------------------------------------------- */
-@font-face {
-  font-family: 'Azonix';
-  src: url('fonts\Azonix.otf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
-}
-
 .mil-logo {
-  font-family: 'Azonix', sans-serif;
   font-size: 42px;
   font-weight: 500;
   line-height: 100%;
