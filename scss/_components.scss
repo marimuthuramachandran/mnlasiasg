@@ -865,19 +865,19 @@ circle text
 lines
 
 ------------------------------------------- */
-@mixin move-animation {
-    from {
-        transform: translateY(-75px);
-    }
+// @mixin move-animation {
+//     from {
+//         transform: translateY(-75px);
+//     }
 
-    50% {
-        transform: translateY(75px);
-    }
+//     50% {
+//         transform: translateY(75px);
+//     }
 
-    to {
-        transform: translateY(-75px);
-    }
-}
+//     to {
+//         transform: translateY(-75px);
+//     }
+// }
 
 @keyframes move {
     @include move-animation;
@@ -1282,6 +1282,13 @@ services
 
         &:before {
             width: 100%;
+        }
+    }
+
+     @media screen and (max-width: 1289px) {
+        & p {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
         }
     }
 
