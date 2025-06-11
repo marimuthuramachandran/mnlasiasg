@@ -543,7 +543,7 @@ menu
             }
 
             &.mil-active {
-                & > a {
+                &>a {
                     color: $accent;
 
                     &:hover {
@@ -554,7 +554,7 @@ menu
             }
 
             &.mil-has-children {
-                & > a {
+                &>a {
                     &:hover {
                         color: $light;
                         padding-left: 25px;
@@ -1285,7 +1285,7 @@ services
         }
     }
 
-     @media screen and (max-width: 1289px) {
+    @media screen and (max-width: 1289px) {
         & p {
             opacity: 1 !important;
             transform: translateY(0) !important;
@@ -2479,7 +2479,7 @@ images
     position: relative;
     overflow: hidden;
 
-    & > img {
+    &>img {
         position: absolute;
         top: 0;
         left: 0;

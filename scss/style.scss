@@ -9,6 +9,17 @@ p.s. I am available for Freelance hire (UI design, web development). email: mill
 
 ------------------------------------------- */
 
+@font-face {
+    font-family: 'Azonix';
+    src: url('/fonts/Azonix.otf') format('otf'),
+}
+
+/* Apply the font to an element */
+.mil-logo {
+    font-family: 'Azonix', sans-serif;
+}
+
+
 /*--------------------------------------------
 
 1. common
