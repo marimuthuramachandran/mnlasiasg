@@ -1,0 +1,29 @@
+#ev-impact {
+    background-color: #000000;
+    padding: 40px 20px;
+    color: #fff;
+    font-family: $font-1;
+    font-size: $text;
+    text-align: center;
+}
+
+#ev-impact h2 {
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+#ev-impact p {
+    color: #9ca3af;
+    margin-bottom: 30px;
+}
+
+#ev-impact canvas {
+    max-width: 700px;
+    width: 100%;
+    margin: auto;
+}
+
+.chart-container {
+    position: relative;
+    filter: drop-shadow(0 5px 25px rgba(0, 255, 204, 0.3));
+}

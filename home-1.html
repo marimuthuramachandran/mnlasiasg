@@ -561,6 +561,21 @@
                 </section>
 
                 <!-- reviews -->
+                <section id="ev-impact" style="padding: 40px 20px; background: #000;">
+                    <h4
+                        style="color:#ffffff; text-align:center; font-family: 'Segoe UI', sans-serif; margin-bottom:10px;">
+                        Energy Delivered, Emissions Reduced
+                    </h4>
+                    <p
+                        style="color:#9ca3af; text-align:center; font-family: 'Segoe UI', sans-serif; margin-bottom:30px;">
+                        Tracking Total Energy Dispensed &amp; CO₂ Offset
+                    </p>
+                    <div class="chart-container"
+                        style="max-width:700px; margin:0 auto; filter: drop-shadow(0 5px 25px rgba(0,255,204,0.3));">
+                        <canvas id="evImpactChart"></canvas>
+                    </div>
+                </section>
+
                 <section class="mil-soft-bg">
                     <div class="container mil-p-120-120">
 
@@ -1021,24 +1036,12 @@
             </div>
         </div>
         <!-- content -->
-
-    </div>
-    <div id="whatsapp-drag">
-        <a title="Chat with us on WhatsApp">
-            <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="WhatsApp Chat" />
-        </a>
     </div>
     <!-- wrapper end -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0"></script>
+    <script src="js\ev-impact.js"></script>
     <script>
-        document.getElementById('whatsapp-btn').addEventListener('click', () => {
-            const whatsappNumber = '14155555555';  // replace with your WhatsApp number
-            const textMessage = encodeURIComponent('Hello I have a question');
-            const url = `https://wa.me/${whatsappNumber}?text=${textMessage}`;
-
-            // Open the WhatsApp link in a new tab/window
-            window.open(url, '_blank', 'noopener,noreferrer');
-        });
-        
         document.addEventListener("DOMContentLoaded", () => {
             const counters = document.querySelectorAll(".counter-number");
             const speed = 200;
